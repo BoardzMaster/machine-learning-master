@@ -11932,9 +11932,9 @@ Standard deviation of prices: $165,171.13
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 
-<pre><code>1. 'MEDV' value would increase/decrease if 'RM' value increases/decreases. More rooms means higher price.
-2. 'MEDV' value would increase/decrease if 'LSTAT' value decreases/increases. More poverty means lower price.
-3. 'MEDV' value would increase/decrease if 'PTRATIO' value decreases/increases. Less schools means lower price.</code></pre>
+<pre><code>1. 'MEDV' value would increase/decrease if 'RM' value increases/decreases. More rooms means higher price. A big house costs more than a small one cause more recourses needed to construct it.  
+2. 'MEDV' value would increase/decrease if 'LSTAT' value decreases/increases. More poverty means lower price. If in the neighborhood live many poor people its more probability that criminal level is higher. People would not live in a dangerous area.  
+3. 'MEDV' value would increase/decrease if 'PTRATIO' value decreases/increases. The area with many schools is better for a living because its easier to find a school quite close to a home and there are smaller classes in these schools so teachers could give more individual education.</code></pre>
 
 </div>
 </div>
@@ -12148,7 +12148,7 @@ Standard deviation of prices: $165,171.13
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-We need to split data into training and testing sets because there will be model model overfitting if we train our model and test it using the same data set.</p>
+We need to split data into training and testing sets because testing data gives as assessment of performance of a model on an independent data set and also helps prevent overfitting.</p>
 
 </div>
 </div>
@@ -13231,7 +13231,7 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-The upper right graph has  max_depth=3. If we add more training points (more than 300) we can see that both curves converge to the score value about 0.8. Adding more training points does not affect the model's quality.</p>
+The upper right graph has  max_depth=3. If we add more training points (in the end) we can see that both curves converge to the score value about 0.8 and more data here is not necessary. But adding more training points in the beginning helps to improve  the model's quality. So about 200 points are enough to describe the model quite well.</p>
 
 </div>
 </div>
@@ -13784,6 +13784,12 @@ The best max_depth valuse is 3. Because from this point both curves start diverg
 <p><strong>Answer: </strong>
 When evaluating different settings("hyperparameters") for estimators (using grid search), such as the C setting that must be manually set for an SVM, there is still a risk of overfitting on the test set because the parameters can be tweaked until the estimator performs optimally. This way, knowledge about the test set can "leak" into the model and evaluation metrics no longer report on generalization performance. We can use one set for validation and tuning the parameters. But we drastically reduce the number of samples which can be used for learning a model. So we use  the k-fold cross-validation training technique.
 In the basic approach the training set is split into k smaller sets. Then model is trained using each of these sets. In a nutshell this technique helps grid search method to avoid overfitting.</p>
+<p>In k-fold cross-validation, the original sample is randomly partitioned into k equal sized subsamples.</p>
+
+<pre><code>  - K − 1 subsamples are used as training data.
+  - A single subsample is retained as the validation data.
+</code></pre>
+<p>At each step we get an error score and then after all steps we compute an single average error - cross validation error. And after we have tuned all parameters we choose the model (and particular parameters) with the minimum cross-validation error. And this is beneficial for paramater tuning.</p>
 
 </div>
 </div>
@@ -13924,7 +13930,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> Hint: </strong> The answer comes from the output of the code snipped above.</p>
 <p><strong>Answer: </strong>
-Parameter 'max_depth' is 4 is used to get the optimal model.</p>
+Parameter 'max_depth' is 4 is used to get the optimal model. And comparing it  with my guess in Question 6  I can say that it differs from  the previous 'max_depth' = 3 by one point. Both tuning processes have almost the same results  what means that our 'fit_model' function implemented correctly.</p>
 
 </div>
 </div>
@@ -14020,8 +14026,9 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 <pre><code>    Predicted selling price for Client 1's home: $403,025.00.   
 </code></pre>
 <p>Predicted selling price for Client 2's home: $237,478.72.
-    Predicted selling price for Client 3's home: $931,636.3.
-These prices seem to be absolutely reasonable according to the respective features.</p>
+    Predicted selling price for Client 3's home: $931,636.3.</p>
+<p>These prices seem to be absolutely reasonable according to the respective features (and my guesses):
+    The third client has a house with 8 rooms in an area with low poverty level (and perhaps criminal level) and with many schools around so the house's price is the highest. While  the second client has only 4 rooms, the highest poverty level and not so many schools so his house's price is the smallest.</p>
 
 </div>
 </div>
@@ -14108,6 +14115,7 @@ Range in prices: $69,044.61
 <li>I consider that data collected in a urban city would not be applicable in rural territory because there is a big difference in living conditions between cities and small towns.</li>
 <li>I guess  its quite fair to judge the price of an individual home based on characteristics of the entire neighborhood. Just imagine a palace located in slums. It would not cost much.</li>
 </ul>
+<p>In summary I think the model could be used in a real-world setting. We need just to recalculate the prices according the inflation for the past years.</p>
 
 </div>
 </div>
