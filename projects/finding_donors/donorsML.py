@@ -7,6 +7,7 @@
 
 # Import libraries necessary for this project
 import numpy as np
+import math
 import pandas as pd
 from time import time
 from IPython.display import display # Allows the use of display() for DataFrames
@@ -18,9 +19,13 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import fbeta_score
 
 # TODO: Import the three supervised learning models from sklearn
-from sklearn.naive_bayes import GaussianNB
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn import svm
+
+# TODO: Import 'GridSearchCV', 'make_scorer', and any other necessary libraries
+from sklearn.metrics import  make_scorer
+from sklearn.grid_search import  GridSearchCV
 
 # Import supplementary visualization code visuals.py
 import visuals as vs
@@ -179,8 +184,8 @@ print "Naive Predictor: [Accuracy score: {:.4f}, F-score: {:.4f}]".format(accura
 
 
 # TODO: Initialize the three models
-clf_A = GaussianNB()
-clf_B = DecisionTreeClassifier()
+clf_A = LogisticRegression()
+clf_B = RandomForestClassifier()
 clf_C = svm.SVC()
 
 
@@ -205,5 +210,37 @@ for clf in [clf_A, clf_B, clf_C]:
 vs.evaluate(results, accuracy, fscore)
 
 
+# TODO: Initialize the classifier
+clf = RandomForestClassifier(random_state= 0)
+
+# TODO: Create the parameters list you wish to tune, using a dictionary if needed.
+# HINT: parameters = {'parameter_1': [value1, value2], 'parameter_2': [value1, value2]}
+#parameters = {'n_estimators': range(1,100), 'max_features': range(1,int(round(math.sqrt(features_final[:1].size))))};
+parameters = {'n_estimators': range(1,100)};
+
+# TODO: Make an fbeta_score scoring object using make_scorer()
+scorer = make_scorer(fbeta_score, beta=0.5);
+
+
+# TODO: Perform grid search on the classifier using 'scorer' as the scoring method using GridSearchCV()
+grid_obj = GridSearchCV(clf, parameters, scorer);
+
+# TODO: Fit the grid search object to the training data and find the optimal parameters using fit()
+grid_fit = grid_obj.fit(X_train, y_train['>50K'])
+
+# Get the estimator
+best_clf = grid_fit.best_estimator_
+
+# Make predictions using the unoptimized and model
+predictions = (clf.fit(X_train, y_train['>50K'])).predict(X_test)
+best_predictions = best_clf.predict(X_test)
+
+# Report the before-and-afterscores
+print "Unoptimized model\n------"
+print "Accuracy score on testing data: {:.4f}".format(accuracy_score(y_test['>50K'], predictions))
+print "F-score on testing data: {:.4f}".format(fbeta_score(y_test['>50K'], predictions, beta = 0.5))
+print "\nOptimized Model\n------"
+print "Final accuracy score on the testing data: {:.4f}".format(accuracy_score(y_test['>50K'], best_predictions))
+print "Final F-score on the testing data: {:.4f}".format(fbeta_score(y_test['>50K'], best_predictions, beta = 0.5))
 
 
