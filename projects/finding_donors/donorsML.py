@@ -19,9 +19,15 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import fbeta_score
 
 # TODO: Import the three supervised learning models from sklearn
-from sklearn.ensemble import RandomForestClassifier
+
 from sklearn.linear_model import LogisticRegression
 from sklearn import svm
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import SGDClassifier
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 
 # TODO: Import 'GridSearchCV', 'make_scorer', and any other necessary libraries
 from sklearn.metrics import  make_scorer
@@ -185,8 +191,8 @@ print "Naive Predictor: [Accuracy score: {:.4f}, F-score: {:.4f}]".format(accura
 
 # TODO: Initialize the three models
 clf_A = LogisticRegression()
-clf_B = RandomForestClassifier()
 clf_C = svm.SVC()
+clf_B = GradientBoostingClassifier()
 
 
 # TODO: Calculate the number of samples for 1%, 10%, and 100% of the training data
@@ -211,12 +217,13 @@ vs.evaluate(results, accuracy, fscore)
 
 
 # TODO: Initialize the classifier
-clf = RandomForestClassifier(random_state= 0)
+clf = GradientBoostingClassifier()
 
 # TODO: Create the parameters list you wish to tune, using a dictionary if needed.
 # HINT: parameters = {'parameter_1': [value1, value2], 'parameter_2': [value1, value2]}
-#parameters = {'n_estimators': range(1,100), 'max_features': range(1,int(round(math.sqrt(features_final[:1].size))))};
-parameters = {'n_estimators': range(1,100)};
+parameters = {'n_estimators': range(50, 550, 50), 'max_depth': range(1, 11), 'max_features':('auto', 'sqrt', 'log2')};
+#parameters = {'alpha': [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]};
+#parameters = {'C': [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]};
 
 # TODO: Make an fbeta_score scoring object using make_scorer()
 scorer = make_scorer(fbeta_score, beta=0.5);
