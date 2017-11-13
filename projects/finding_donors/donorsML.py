@@ -221,7 +221,9 @@ clf = GradientBoostingClassifier()
 
 # TODO: Create the parameters list you wish to tune, using a dictionary if needed.
 # HINT: parameters = {'parameter_1': [value1, value2], 'parameter_2': [value1, value2]}
-parameters = {'n_estimators': range(50, 550, 50), 'max_depth': range(1, 11), 'max_features':('auto', 'sqrt', 'log2')};
+#parameters = {'n_estimators': range(50, 550, 50), 'max_depth': range(1, 11), 'max_features':('auto', 'sqrt', 'log2')};
+#parameters = {'n_estimators': range(50, 550, 50), 'max_features':('auto', 'sqrt', 'log2')}
+parameters = {'n_estimators': range(50, 550, 50)}
 #parameters = {'alpha': [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]};
 #parameters = {'C': [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]};
 
@@ -250,4 +252,35 @@ print "\nOptimized Model\n------"
 print "Final accuracy score on the testing data: {:.4f}".format(accuracy_score(y_test['>50K'], best_predictions))
 print "Final F-score on the testing data: {:.4f}".format(fbeta_score(y_test['>50K'], best_predictions, beta = 0.5))
 
+# TODO: Import a supervised learning model that has 'feature_importances_'
 
+
+# TODO: Train the supervised model on the training set using .fit(X_train, y_train)
+model = GradientBoostingClassifier(random_state = 1).fit(X_train, y_train['>50K'])
+
+# TODO: Extract the feature importances using .feature_importances_ 
+importances = model.feature_importances_
+
+# Plot
+vs.feature_plot(importances, X_train, y_train)
+
+# Import functionality for cloning a model
+from sklearn.base import clone
+
+# Reduce the feature space
+X_train_reduced = X_train[X_train.columns.values[(np.argsort(importances)[::-1])[:5]]]
+X_test_reduced = X_test[X_test.columns.values[(np.argsort(importances)[::-1])[:5]]]
+
+# Train on the "best" model found from grid search earlier
+clf = (clone(best_clf)).fit(X_train_reduced, y_train['>50K'])
+
+# Make new predictions
+reduced_predictions = clf.predict(X_test_reduced)
+
+# Report scores from the final model using both versions of data
+print "Final Model trained on full data\n------"
+print "Accuracy on testing data: {:.4f}".format(accuracy_score(y_test['>50K'], best_predictions))
+print "F-score on testing data: {:.4f}".format(fbeta_score(y_test['>50K'], best_predictions, beta = 0.5))
+print "\nFinal Model trained on reduced data\n------"
+print "Accuracy on testing data: {:.4f}".format(accuracy_score(y_test['>50K'], reduced_predictions))
+print "F-score on testing data: {:.4f}".format(fbeta_score(y_test['>50K'], reduced_predictions, beta = 0.5))
