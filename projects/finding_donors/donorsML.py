@@ -216,41 +216,7 @@ for clf in [clf_A, clf_B, clf_C]:
 vs.evaluate(results, accuracy, fscore)
 
 
-# TODO: Initialize the classifier
-clf = GradientBoostingClassifier()
 
-# TODO: Create the parameters list you wish to tune, using a dictionary if needed.
-# HINT: parameters = {'parameter_1': [value1, value2], 'parameter_2': [value1, value2]}
-#parameters = {'n_estimators': range(50, 550, 50), 'max_depth': range(1, 11), 'max_features':('auto', 'sqrt', 'log2')};
-#parameters = {'n_estimators': range(50, 550, 50), 'max_features':('auto', 'sqrt', 'log2')}
-parameters = {'n_estimators': range(50, 550, 50)}
-#parameters = {'alpha': [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]};
-#parameters = {'C': [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]};
-
-# TODO: Make an fbeta_score scoring object using make_scorer()
-scorer = make_scorer(fbeta_score, beta=0.5);
-
-
-# TODO: Perform grid search on the classifier using 'scorer' as the scoring method using GridSearchCV()
-grid_obj = GridSearchCV(clf, parameters, scorer);
-
-# TODO: Fit the grid search object to the training data and find the optimal parameters using fit()
-grid_fit = grid_obj.fit(X_train, y_train['>50K'])
-
-# Get the estimator
-best_clf = grid_fit.best_estimator_
-
-# Make predictions using the unoptimized and model
-predictions = (clf.fit(X_train, y_train['>50K'])).predict(X_test)
-best_predictions = best_clf.predict(X_test)
-
-# Report the before-and-afterscores
-print "Unoptimized model\n------"
-print "Accuracy score on testing data: {:.4f}".format(accuracy_score(y_test['>50K'], predictions))
-print "F-score on testing data: {:.4f}".format(fbeta_score(y_test['>50K'], predictions, beta = 0.5))
-print "\nOptimized Model\n------"
-print "Final accuracy score on the testing data: {:.4f}".format(accuracy_score(y_test['>50K'], best_predictions))
-print "Final F-score on the testing data: {:.4f}".format(fbeta_score(y_test['>50K'], best_predictions, beta = 0.5))
 
 # TODO: Import a supervised learning model that has 'feature_importances_'
 
