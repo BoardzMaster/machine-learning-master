@@ -13158,7 +13158,7 @@ In the code block below, you will need to implement the following:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import two metrics from sklearn - fbeta_score and accuracy_score</span>
@@ -13189,7 +13189,7 @@ In the code block below, you will need to implement the following:</p>
     <span class="c1"># TODO: Get the predictions on the test set(X_test),</span>
     <span class="c1">#       then get predictions on the first 300 training samples(X_train) using .predict()</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get start time</span>
-    <span class="n">predictions_test</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
+    <span class="n">predictions_test</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
     <span class="n">predictions_train</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get end time</span>
     
@@ -13200,13 +13200,13 @@ In the code block below, you will need to implement the following:</p>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">][</span><span class="s1">&#39;&gt;50K&#39;</span><span class="p">],</span> <span class="n">predictions_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
         
     <span class="c1"># TODO: Compute accuracy on test set using accuracy_score()</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">[:</span><span class="mi">300</span><span class="p">][</span><span class="s1">&#39;&gt;50K&#39;</span><span class="p">],</span> <span class="n">predictions_test</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;&gt;50K&#39;</span><span class="p">],</span> <span class="n">predictions_test</span><span class="p">)</span>
     
     <span class="c1"># TODO: Compute F-score on the the first 300 training samples using fbeta_score()</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">][</span><span class="s1">&#39;&gt;50K&#39;</span><span class="p">],</span> <span class="n">predictions_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">],</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
         
     <span class="c1"># TODO: Compute F-score on the test set which is y_test</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">[:</span><span class="mi">300</span><span class="p">][</span><span class="s1">&#39;&gt;50K&#39;</span><span class="p">],</span> <span class="n">predictions_test</span><span class="p">[:</span><span class="mi">300</span><span class="p">],</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;&gt;50K&#39;</span><span class="p">],</span> <span class="n">predictions_test</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
        
     <span class="c1"># Success</span>
     <span class="k">print</span> <span class="s2">&quot;{} trained on {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">learner</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
