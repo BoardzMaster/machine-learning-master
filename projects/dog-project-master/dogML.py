@@ -57,8 +57,6 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 faces = face_cascade.detectMultiScale(gray)
 
 
-
-
 # print number of faces detected in the image
 print('Number of faces detected:', len(faces))
 
@@ -80,4 +78,8 @@ dog_files_short = train_files[:100]
 face_found = 0;
 for element in human_files_short:
     face_found = face_found + face_detector(element )
+    
+dog_found = 0;
+for element in dog_files_short:
+    dog_found = dog_found + face_detector(element )
 
