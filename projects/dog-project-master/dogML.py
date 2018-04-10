@@ -57,8 +57,6 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 faces = face_cascade.detectMultiScale(gray)
 
 
-
-
 # print number of faces detected in the image
 print('Number of faces detected:', len(faces))
 
