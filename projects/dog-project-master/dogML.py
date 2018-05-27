@@ -116,6 +116,9 @@ for element in human_files_short:
 dog_found = 0;
 for element in dog_files_short:
     dog_found = dog_found + face_detector(element )
+
+print('Number of faces detected:', face_found)
+print('Number of dogs detected:', dog_found)
     
  # define ResNet50 model
 ResNet50_model = ResNet50(weights='imagenet')
