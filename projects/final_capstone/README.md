@@ -86,50 +86,50 @@ In the project I will be following the next process:
 
 1. Data cleaning.
 
-      •  Dealing with missing data, NaN data.
+      • Dealing with missing data, NaN data.
   
-      •  Deleting outliers.
+      • Deleting outliers.
    
 2. Encoding data.
 
-   • Convert categorical data to  numeric values
+     • Convert categorical data to  numeric values
    
-3.Calculate covariance matrix. 
+3. Calculate covariance matrix. 
 
-   • Variability comparison between categories of variables
+     • Variability comparison between categories of variables
    
-   • Finding variables relationship to reduce features’ dimention
+     • Finding variables relationship to reduce features’ dimention
    
-4.Feature scaling and fitting.
+4. Feature scaling and fitting.
 
-5.Tuning functions.
+5. Tuning functions.
 
-   • Preparing functions for evaluation metrics for a model: confusion matrix, ROC curve.
+     • Preparing functions for evaluation metrics for a model: confusion matrix, ROC curve.
    
-   • Function for cross validation tuning
+     • Function for cross validation tuning
    
-   • Function for GridSearch tuning
+     • Function for GridSearch tuning
    
-   • Function for RandomizedSearch tuning
+     • Function for RandomizedSearch tuning
    
-6.Evaluating models.
+6. Evaluating models.
 
-   • Logistic Eegression
+    • Logistic Eegression
    
-   • KNeighbors Classifier
+    • KNeighbors Classifier
    
-   • Decision Tree Classifier
+    • Decision Tree Classifier
    
-   • Random Forests
+    • Random Forests
    
-   • SVM
+    • SVM
    
-   • Boosting
+    • Boosting
    
-   • Neural networks 
+    • Neural networks 
    
-7.Comparing models.
+7. Comparing models.
 
-8.Predictions on a test set.
+8. Predictions on a test set.
 
-9.Making a conclusion.
+9. Making a conclusion.
