@@ -84,11 +84,12 @@ All files can be downloaded from <https://www.kaggle.com/c/home-credit-default-r
 
 In the project I will be following the next process:
 
-1.Data cleaning.
-  • Dealing with missing data, NaN data.
-  • Deleting outliers.
+1. Data cleaning.
+  •  Dealing with missing data, NaN data.
+  
+  •  Deleting outliers.
    
-2.Encoding data.
+2. Encoding data.
 
    • Convert categorical data to  numeric values
    
