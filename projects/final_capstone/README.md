@@ -2,13 +2,16 @@
 ## Specializations
 ## Project: Capstone Proposal and Capstone Project
 
-##Definition
+### Definition
 
-For the final project I’ve decided to join to one of competitions on Kaggle.com. It was launched by Home Credit Group, an international consumer finance provider. It focuses on responsible lending primarily to people with little or no credit history. Many people struggle to get loans due to insufficient or non-existent credit histories. And, unfortunately, this population is often taken advantage of by untrustworthy lenders. 
-Home Credit strives to broaden financial inclusion for the unbanked population by providing a positive and safe borrowing experience. In order to make sure this underserved population has a positive loan experience, Home Credit makes use of a variety of alternative data, including telco and transactional information to predict their clients' repayment abilities.
-In a nutshell I need to build a binary classifier that is used by the bank for a credit approval for people without any credit history.
-##Data Description
-There are the following files in a dataset:
+	For the final project I’ve decided to join to one of competitions on Kaggle.com. 
+	It was launched by Home Credit Group, an international consumer finance provider. It focuses on responsible lending primarily to people with little or no credit history. Many people struggle to get loans due to insufficient or non-existent credit histories. And, unfortunately, this population is often taken advantage of by untrustworthy lenders. 
+	Home Credit strives to broaden financial inclusion for the unbanked population by providing a positive and safe borrowing experience. In order to make sure this underserved population has a positive loan experience, Home Credit makes use of a variety of alternative data, including telco and transactional information to predict their clients' repayment abilities.
+	In a nutshell I need to build a binary classifier that is used by the bank for a credit approval for people without any credit history.
+	
+### Data Description
+
+	There are the following files in a dataset:
 	•	application_{train|test}.csv
 		o	This is the main table, broken into two files for Train (with TARGET) and Test (without TARGET).
 		o	Static data for all applications. One row represents one loan in our data sample.
@@ -34,9 +37,9 @@ There are the following files in a dataset:
 	•	HomeCredit_columns_description.csv
 		o	This file contains descriptions for the columns in the various data files.
 
-All files can be downloaded from https://www.kaggle.com/c/home-credit-default-risk/data
+	All files can be downloaded from https://www.kaggle.com/c/home-credit-default-risk/data
 
-In the project I will be following the next process:
+	In the project I will be following the next process:
 	1.	Data cleaning.
 		•	Dealing with missing data, NaN data.
 		•	Deleting outliers.
