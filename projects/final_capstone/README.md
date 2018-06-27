@@ -49,7 +49,7 @@
 		o All previous applications for Home Credit loans of clients who have loans in our sample.
 		o There is one row for each previous application related to loans in our data sample.
 	• installments_payments.csv
-		o Repayment history for the previously disbursed credits in Home Credit related to the loans in our sample.
+		o Repayment history for the previously disbursed credits in Home Credit related to the loans in our sample. 
 		o There is a) one row for every payment that was made plus b) one row each for missed payment.
 		o One row is equivalent to one payment of one installment OR one installment corresponding to one payment of one previous 
 			Home Credit credit related to loans in our sample.
