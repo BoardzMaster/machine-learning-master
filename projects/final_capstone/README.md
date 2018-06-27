@@ -19,16 +19,17 @@ without any credit history.
 	
 ### Data Description
 
-   There are the following files in a dataset:
-    •  **application_{train|test}.csv**
+   There are the following files in a dataset
+    
+   •  **application_{train|test}.csv**
 	o This is the main table, broken into two files for Train (with TARGET) and Test (without TARGET).
 	o Static data for all applications. One row represents one loan in our data sample.
-    •  **bureau.csv**
+   •  **bureau.csv**
 	o All client's previous credits provided by other financial institutions that were reported to Credit Bureau 
 	 (for clients who have a loan in our sample).
 	o For every loan in our sample, there are as many rows as number of credits the client had in Credit Bureau
      	before the application date.
-    •  **bureau_balance.csv**
+   •  **bureau_balance.csv**
 	o Monthly balances of previous credits in Credit Bureau.
 	o This table has one row for each month of history of every previous credit reported to Credit Bureau – i.e the table     has    (#loans in sample * # of relative previous credits * # of months where we have some history observable 
 	for the previous credits) rows.
