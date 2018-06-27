@@ -6,14 +6,17 @@
 
 	For the final project I’ve decided to join to one of competitions on Kaggle.com. 
 	
-	It was launched by Home Credit Group, an international consumer finance provider. It focuses on responsible lending primarily 
-	to people with little or no credit history. Many people struggle to get loans due to insufficient or non-existent credit histories. 
+	It was launched by [Home Credit Group](http://www.homecredit.net/), an international consumer finance provider. 
+	It focuses on responsible lending primarily to people with little or no credit history. 
+	Many people struggle to get loans due to insufficient or non-existent credit histories. 
 	And, unfortunately, this population is often taken advantage of by untrustworthy lenders. 
-	Home Credit strives to broaden financial inclusion for the unbanked population by providing a positive and safe borrowing experience. 
-	In order to make sure this underserved population has a positive loan experience, Home Credit makes use of a variety of alternative data, 
-	including telco and transactional information to predict their clients' repayment abilities.
+	Home Credit strives to broaden financial inclusion for the unbanked population by providing 
+	a positive and safe borrowing experience. In order to make sure this underserved population has a positive 
+	loan experience, Home Credit makes use of a variety of alternative data, including telco and transactional 
+	information to predict their clients' repayment abilities.
 	
-	In a nutshell I need to build a binary classifier that is used by the bank for a credit approval for people without any credit history.
+	In a nutshell I need to build a binary classifier that is used by the bank for a credit approval for people 
+	without any credit history.
 	
 ### Data Description
 
@@ -29,17 +32,20 @@
 	•	**bureau_balance.csv**
 		o	Monthly balances of previous credits in Credit Bureau.
 		o	This table has one row for each month of history of every previous credit reported to Credit Bureau – i.e the table has 
-		    (#loans in sample * # of relative previous credits * # of months where we have some history observable for the previous credits) rows.
+		    (#loans in sample * # of relative previous credits * # of months where we have some history observable 
+			for the previous credits) rows.
 	•	**POS_CASH_balance.csv**
 		o	Monthly balance snapshots of previous POS (point of sales) and cash loans that the applicant had with Home Credit.
 		o	This table has one row for each month of history of every previous credit in Home Credit 
 		    (consumer credit and cash loans) related to loans in our sample – i.e. the table has 
-		    (#loans in sample * # of relative previous credits * # of months in which we have some history observable for the previous credits) rows.
+		    (#loans in sample * # of relative previous credits * # of months in which we have some history observable 
+			for the previous credits) rows.
 	•	**credit_card_balance.csv**
 		o	Monthly balance snapshots of previous credit cards that the applicant has with Home Credit.
 		o	This table has one row for each month of history of every previous credit in Home Credit 
 			(consumer credit and cash loans) related to loans in our sample – i.e. the table has 
-			(#loans in sample * # of relative previous credit cards * # of months where we have some history observable for the previous credit card) rows.
+			(#loans in sample * # of relative previous credit cards * # of months where we have some history observable 
+			for the previous credit card) rows.
 	•	**previous_application.csv**
 		o	All previous applications for Home Credit loans of clients who have loans in our sample.
 		o	There is one row for each previous application related to loans in our data sample.
@@ -51,24 +57,26 @@
 	•	**HomeCredit_columns_description.csv**
 		o	This file contains descriptions for the columns in the various data files.
 
-	All files can be downloaded from https://www.kaggle.com/c/home-credit-default-risk/data
+	All files can be downloaded from [the kaggle website](https://www.kaggle.com/c/home-credit-default-risk/data]
+
+### Solution statement
 
 	In the project I will be following the next process:
-	1.	Data cleaning.
+	1.	**Data cleaning**.
 		•	Dealing with missing data, NaN data.
 		•	Deleting outliers.
-	2.	Encoding data.
+	2.	**Encoding data**.
 		•	Convert categorical data to  numeric values
-	3.	Calculate covariance matrix. 
+	3.	**Calculate covariance matrix**. 
 		•	Variability comparison between categories of variables
 		•	Finding variables relationship to reduce features’ dimention
-	4.	Feature scaling and fitting.
-	5.	Tuning functions.
+	4.	**Feature scaling and fitting**.
+	5.	**Tuning functions**.
 		•	Preparing functions for evaluation metrics for a model: confusion matrix, ROC curve.
 		•	Function for cross validation tuning
 		•	Function for GridSearch tuning
 		•	Function for RandomizedSearch tuning
-	6.	Evaluating models.
+	6.	**Evaluating models**.
 		•	Logistic Eegression
 		•	KNeighbors Classifier
 		•	Decision Tree Classifier
@@ -76,6 +84,6 @@
 		•	SVM
 		•	Boosting
 		•	Neural networks 
-	7.	Comparing models.
-	8.	Predictions on a test set.
-	9.	Making a conclusion.
+	7.	**Comparing models**.
+	8.	**Predictions on a test set**.
+	9.	**Making a conclusion**.
