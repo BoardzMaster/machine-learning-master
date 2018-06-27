@@ -31,8 +31,7 @@
      		before the application date.
 	• bureau_balance.csv
 		o Monthly balances of previous credits in Credit Bureau.
-		o This table has one row for each month of history of every previous credit reported to Credit Bureau – i.e the table has 
-		    (#loans in sample * # of relative previous credits * # of months where we have some history observable 
+		o This table has one row for each month of history of every previous credit reported to Credit Bureau – i.e the table     has (#loans in sample * # of relative previous credits * # of months where we have some history observable 
 			for the previous credits) rows.
 	• POS_CASH_balance.csv
 		o Monthly balance snapshots of previous POS (point of sales) and cash loans that the applicant had with Home Credit.
@@ -63,27 +62,27 @@
 
 	In the project I will be following the next process:
 	1.Data cleaning.
-		•	Dealing with missing data, NaN data.
-		•	Deleting outliers.
+		• Dealing with missing data, NaN data.
+		• Deleting outliers.
 	2.Encoding data.
-		•	Convert categorical data to  numeric values
+		• Convert categorical data to  numeric values
 	3.Calculate covariance matrix. 
-		•	Variability comparison between categories of variables
-		•	Finding variables relationship to reduce features’ dimention
+		• Variability comparison between categories of variables
+		• Finding variables relationship to reduce features’ dimention
 	4.Feature scaling and fitting.
 	5.Tuning functions.
-		•	Preparing functions for evaluation metrics for a model: confusion matrix, ROC curve.
-		•	Function for cross validation tuning
-		•	Function for GridSearch tuning
-		•	Function for RandomizedSearch tuning
+		• Preparing functions for evaluation metrics for a model: confusion matrix, ROC curve.
+		• Function for cross validation tuning
+		• Function for GridSearch tuning
+		• Function for RandomizedSearch tuning
 	6.Evaluating models.
-		•	Logistic Eegression
-		•	KNeighbors Classifier
-		•	Decision Tree Classifier
-		•	Random Forests
-		•	SVM
-		•	Boosting
-		•	Neural networks 
+		• Logistic Eegression
+		• KNeighbors Classifier
+		• Decision Tree Classifier
+		• Random Forests
+		• SVM
+		• Boosting
+		• Neural networks 
 	7.Comparing models.
 	8.Predictions on a test set.
 	9.Making a conclusion.
