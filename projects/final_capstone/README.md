@@ -84,25 +84,25 @@ All files can be downloaded from <https://www.kaggle.com/c/home-credit-default-r
 
 In the project I will be following the next process:
 
-1. Data cleaning.
+1. **Data cleaning**.
 
       • Dealing with missing data, NaN data.
   
       • Deleting outliers.
    
-2. Encoding data.
+2. **Encoding data**.
 
      • Convert categorical data to  numeric values
    
-3. Calculate covariance matrix. 
+3. **Calculate covariance matrix**. 
 
      • Variability comparison between categories of variables
    
      • Finding variables relationship to reduce features’ dimention
    
-4. Feature scaling and fitting.
+4. **Feature scaling and fitting**.
 
-5. Tuning functions.
+5. **Tuning functions**.
 
      • Preparing functions for evaluation metrics for a model: confusion matrix, ROC curve.
    
@@ -112,7 +112,7 @@ In the project I will be following the next process:
    
      • Function for RandomizedSearch tuning
    
-6. Evaluating models.
+6. **Evaluating models**.
 
     • Logistic Eegression
    
@@ -128,8 +128,8 @@ In the project I will be following the next process:
    
     • Neural networks 
    
-7. Comparing models.
+7. **Comparing models**.
 
-8. Predictions on a test set.
+8. **Predictions on a test set**.
 
-9. Making a conclusion.
+9. **Making a conclusion**.
