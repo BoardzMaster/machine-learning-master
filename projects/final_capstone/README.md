@@ -6,7 +6,7 @@
 
 	For the final project I’ve decided to join to one of competitions on Kaggle.com. 
 	
-	It was launched by [Home Credit Group](http://www.homecredit.net/), an international consumer finance provider. 
+	It was launched by [Home Credit Group](http://www.homecredit.net), an international consumer finance provider. 
 	It focuses on responsible lending primarily to people with little or no credit history. 
 	Many people struggle to get loans due to insufficient or non-existent credit histories. 
 	And, unfortunately, this population is often taken advantage of by untrustworthy lenders. 
