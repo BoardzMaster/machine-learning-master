@@ -58,7 +58,7 @@ In the project I will be following the next process:
   
       • Labels and data analysis.
 	  
-	  • •	Drawing  boxes in images with the disease
+	  • Drawing  boxes in images with the disease
 	  
    
 2. **Constructing a simple CNN with segmentation using Keras**.
