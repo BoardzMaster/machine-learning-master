@@ -46,11 +46,16 @@ Specifically, your algorithm needs to automatically locate lung opacities on che
 
 ### Data fields
 
-•	**patientId** _- A patientId. Each patientId corresponds to a unique image.
+•	**patientId**_ - A patientId. Each patientId corresponds to a unique image.
+
 •	**x**_ - the upper-left x coordinate of the bounding box.
+
 •	**y**_ - the upper-left y coordinate of the bounding box.
+
 •	**width**_ - the width of the bounding box.
+
 •	**height**_ - the height of the bounding box.
+
 •	**Target**_ - the binary Target, indicating whether this sample has evidence of pneumonia.
 
 All files can be downloaded from <https://www.kaggle.com/c/home-credit-default-risk/data>
