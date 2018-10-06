@@ -5,78 +5,53 @@
 
 For the final project I’ve decided to join to one of competitions on Kaggle.com. 
 	
-It was launched by [Home Credit Group](http://www.homecredit.net), an international consumer finance provider. 
-It focuses on responsible lending primarily to people with little or no credit history. 
-Many people struggle to get loans due to insufficient or non-existent credit histories. 
-And, unfortunately, this population is often taken advantage of by untrustworthy lenders. 
-Home Credit strives to broaden financial inclusion for the unbanked population by providing 
-a positive and safe borrowing experience. In order to make sure this underserved population has a positive 
-loan experience, Home Credit makes use of a variety of alternative data, including telco and transactional 
-information to predict their clients' repayment abilities.
-	
-In a nutshell I need to build a binary classifier that is used by the bank for a credit approval for people 
-without any credit history.
+
+Pneumonia accounts for over 15% of all deaths of children under 5 years old internationally. 
+In 2015, 920,000 children under the age of 5 died from the disease. In the United States, 
+pneumonia accounts for over 500,000 visits to emergency departments [1] and over 50,000 deaths in 2015 [2], 
+keeping the ailment on the list of top 10 causes of death in the country.
+While common, accurately diagnosing pneumonia is a tall order. It requires review of a chest radiograph (CXR) 
+by highly trained specialists and confirmation through clinical history, vital signs and laboratory exams. 
+Pneumonia usually manifests as an area or areas of increased opacity [3] on CXR. However, the diagnosis of 
+pneumonia on CXR is complicated because of a number of other conditions in the lungs such as fluid overload (pulmonary edema),
+bleeding, volume loss (atelectasis or collapse), lung cancer, or post-radiation or surgical changes. 
+Outside of the lungs, fluid in the pleural space (pleural effusion) also appears as increased opacity on CXR. 
+When available, comparison of CXRs of the patient taken at different time points and correlation with clinical 
+symptoms and history are helpful in making the diagnosis.
+CXRs are the most commonly performed diagnostic imaging study. A number of factors such as positioning of the 
+patient and depth of inspiration can alter the appearance of the CXR [4], complicating interpretation further. 
+In addition, clinicians are faced with reading high volumes of images every shift.
+To improve the efficiency and reach of diagnostic services, the Radiological Society of North America (RSNA®) has 
+reached out to Kaggle’s machine learning community and collaborated with the US National Institutes of Health, 
+The Society of Thoracic Radiology, and MD.ai to develop a rich dataset for this challenge.
+
+
+In this competition, I’m challenged to build an algorithm to detect a visual signal for pneumonia in medical images. 
+Specifically, your algorithm needs to automatically locate lung opacities on chest radiographs.
+
 	
 ### Data Description
 
    There are the following files in a dataset
    
-•  **application_{train|test}.csv**
+•  **stage_1_train_images.zip** and **stage_1_test_images.zip** – training and test images.
 
-   o This is the main table, broken into two files for Train (with TARGET) and Test (without TARGET).
+•  **stage_1_train.csv** – training labels.
 	
-   o Static data for all applications. One row represents one loan in our data sample.
-	
-•  **bureau.csv**
-	
-   o All client's previous credits provided by other financial institutions that were reported to Credit Bureau 
-	 (for clients who have a loan in our sample).
-	 
-   o For every loan in our sample, there are as many rows as number of credits the client had in Credit Bureau
-     	before the application date.
-	
-•  **bureau_balance.csv**
+•  **stage_1_sample_submission.csv** - provides the IDs for the test set, as well as a 
+    sample of what your submission should look like.
 
-   o Monthly balances of previous credits in Credit Bureau.
-   
-   o This table has one row for each month of history of every previous credit reported to Credit Bureau – i.e the table     has      (#loans in sample * # of relative previous credits * # of months where we have some history observable 
-	for the previous credits) rows.
-	
-•  **POS_CASH_balance.csv**
+•  **stage_1_detailed_class_info.csv** - contains detailed information about the positive and 
+   negative classes in the training set, and may be used to build more nuanced models.
 
-   o Monthly balance snapshots of previous POS (point of sales) and cash loans that the applicant had with Home Credit.
-	
-   o This table has one row for each month of history of every previous credit in Home Credit 
-   (consumer credit and cash loans) related to loans in our sample – i.e. the table has 
-   (#loans in sample * # of relative previous credits * # of months in which we have some history observable 
-   for the previous credits) rows.
+### Data fields
 
-•  **credit_card_balance.csv**
-
-   o Monthly balance snapshots of previous credit cards that the applicant has with Home Credit.
-	
-   o This table has one row for each month of history of every previous credit in Home Credit 
-   (consumer credit and cash loans) related to loans in our sample – i.e. the table has 
-   (#loans in sample * # of relative previous credit cards * # of months where we have some history observable 
-   for the previous credit card) rows.
-•  **previous_application.csv**
-
-   o All previous applications for Home Credit loans of clients who have loans in our sample.
-   
-   o There is one row for each previous application related to loans in our data sample.
-   
-•  **installments_payments.csv**
-
-   o Repayment history for the previously disbursed credits in Home Credit related to the loans in our sample. 
-   
-   o There is a) one row for every payment that was made plus b) one row each for missed payment.
-   
-   o One row is equivalent to one payment of one installment OR one installment corresponding to one payment of one previous 
-	Home Credit credit related to loans in our sample.
-	
-•  **HomeCredit_columns_description.csv**
-
-   o This file contains descriptions for the columns in the various data files.
+•	**patientId** _- A patientId. Each patientId corresponds to a unique image.
+•	**x**_ - the upper-left x coordinate of the bounding box.
+•	**y**_ - the upper-left y coordinate of the bounding box.
+•	**width**_ - the width of the bounding box.
+•	**height**_ - the height of the bounding box.
+•	**Target**_ - the binary Target, indicating whether this sample has evidence of pneumonia.
 
 All files can be downloaded from <https://www.kaggle.com/c/home-credit-default-risk/data>
 
@@ -84,52 +59,31 @@ All files can be downloaded from <https://www.kaggle.com/c/home-credit-default-r
 
 In the project I will be following the next process:
 
-1. **Data cleaning**.
+1. **Data overview**.
 
-      • Dealing with missing data, NaN data.
+      • Example image visualizing.
   
-      • Deleting outliers.
+      • Labels and data analysis.
+	  
+	  • Drawing  boxes.
+	  
    
-2. **Encoding data**.
+2. **Constructing a simple CNN with segmentation using Keras**.
 
-     • Convert categorical data to  numeric values
+     • Resample images.
+	 
+	 • Choosing network architecture.
+	 
+	 • Train and test the CNN.
+	 
    
-3. **Calculate covariance matrix**. 
+3. **Using transfer learning to get better accuracy**. 
 
-     • Variability comparison between categories of variables
+     • Trying different CNN architectures like : VGG16, RESNET52, Xception, Mask R-CNN, AlexNet ect.
    
-     • Finding variables relationship to reduce features’ dimention
    
-4. **Feature scaling and fitting**.
+4. **Comparing the results and load the best on Kaggle**.
 
-5. **Tuning functions**.
+5. **Making a conclusion**.
 
-     • Preparing functions for evaluation metrics for a model: confusion matrix, ROC curve.
-   
-     • Function for cross validation tuning
-   
-     • Function for GridSearch tuning
-   
-     • Function for RandomizedSearch tuning
-   
-6. **Evaluating models**.
-
-    • Logistic Eegression
-   
-    • KNeighbors Classifier
-   
-    • Decision Tree Classifier
-   
-    • Random Forests
-   
-    • SVM
-   
-    • Boosting
-   
-    • Neural networks 
-   
-7. **Comparing models**.
-
-8. **Predictions on a test set**.
-
-9. **Making a conclusion**.
+ 
